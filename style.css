@@ -4,6 +4,11 @@ body {
     background-size: cover;
 }
 
+.row{
+    display: flex;
+    justify-content: center;
+}
+
 button{
     margin-bottom: 5rem;
 }
@@ -16,8 +21,10 @@ button{
 }
 
 .charactersCard img {
-    width: 100%;
+    width: 15rem;
+    height: 20rem;
     padding-top: 10px;
 }
+
 
 

@@ -137,3 +137,50 @@ for (let i = 0; i < characters.length; i++) {
 </div>
   `;
 }
+
+function renderCharacters() {
+  const renderInformation = document.getElementById("renderInformation");
+  if (renderInformation.style.display === "none") {
+    renderInformation.style.display = "flex";
+    renderButton.textContent = "Remove Characters";
+  } else {
+    renderInformation.style.display = "none";
+    renderButton.textContent = "Show Characters";
+    /* renderButton.style.background = "green"; */
+  }
+}
+
+
+
+
+
+
+
+//homeworldsRaw 
+let homeworldsRaw = characters.map((item => item.homeworld))
+console.log(homeworldsRaw);
+
+// undifined other olacak
+let homeworlds = characters.map((item => item.homeworld ?? 'other'))
+console.log(homeworlds);
+
+// her birinden bir tane yazılacak
+let homeworldsUnique = homeworlds.filter((arr, 
+      index) => homeworlds.indexOf(arr) === index); 
+console.log(homeworldsUnique);
+
+// hepsi küçük harf ile başlayacak
+let homeworldsLowercase = homeworldsUnique.map(element => {
+  return element.toLowerCase();
+});
+console.log(homeworldsLowercase);
+
+
+
+homeworlds = homeworldsLowercase;
+console.log(homeworlds);
+
+
+
+
+
