@@ -127,13 +127,13 @@ const characters = [
 let row = document.querySelector(".row");
 let isStatus = true;
 
-for (let i = 0; i < characters.length; i++) {
+for (const character of characters ) {
   row.innerHTML += `
   <div class="col-lg-3 col-md-4 charactersCard">
-  <img src="${characters[i].pic}" alt="...">
-  <h4>${characters[i].id}</h4>
-  <p>${characters[i].name}</p>
-  <p>Homeworld: ${characters[i].homeworld}</p>
+  <img src="${character.pic}" alt="...">
+  <h4>${character.id}</h4>
+  <p>${character.name}</p>
+  <p>Homeworld: ${character.homeworld}</p>
 </div>
   `;
 }
