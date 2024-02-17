@@ -1,0 +1,23 @@
+body {
+    background-image: url(bg-star-night-sky.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button{
+    margin-bottom: 5rem;
+}
+
+.charactersCard {
+    background-color: black;
+    color: white;
+    width: 17rem;
+    margin: 20px;
+}
+
+.charactersCard img {
+    width: 100%;
+    padding-top: 10px;
+}
+
+
