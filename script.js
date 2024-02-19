@@ -127,7 +127,7 @@ const characters = [
 let row = document.querySelector(".row");
 let isStatus = true;
 
-for (const character of characters ) {
+for (const character of characters) {
   row.innerHTML += `
   <div class="col-lg-3 col-md-4 charactersCard">
   <img src="${character.pic}" alt="...">
@@ -152,10 +152,6 @@ function renderCharacters() {
 
 
 
-
-
-
-
 //homeworldsRaw 
 let homeworldsRaw = characters.map((item => item.homeworld))
 console.log(homeworldsRaw);
@@ -165,8 +161,8 @@ let homeworlds = characters.map((item => item.homeworld ?? 'other'))
 console.log(homeworlds);
 
 // her birinden bir tane yazılacak
-let homeworldsUnique = homeworlds.filter((arr, 
-      index) => homeworlds.indexOf(arr) === index); 
+let homeworldsUnique = homeworlds.filter((arr,
+  index) => homeworlds.indexOf(arr) === index);
 console.log(homeworldsUnique);
 
 // hepsi küçük harf ile başlayacak
@@ -176,9 +172,9 @@ let homeworldsLowercase = homeworldsUnique.map(element => {
 console.log(homeworldsLowercase);
 
 
-
 homeworlds = homeworldsLowercase;
 console.log(homeworlds);
+
 
 
 
