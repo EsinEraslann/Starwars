@@ -15,14 +15,24 @@
     <div class="img-wrapper"></div>
 
     <div class="container">
-        <div>
-            <button id="renderButton" onclick="renderCharacters()">Show Characters</button>
+        <div class="text-center mt-5">
+            <button class="btn" id="renderButton" onclick="renderCharacters()">Show Characters</button>
+        </div>
+        <div class="homeworlds-filter-container"></div>
+        <div id="renderInformation" class="row"></div>
+
+
+        <div class="row" id="renderInformation" style="display: none;">
+
         </div>
 
+    </div>
 
 
 
-          <div class="home-world-filters-container">
+
+
+        <!-- <div class="home-world-filters-container">
              <form>
                 <div id="homeworlds-filter-container">
                     <div class="form-check">
@@ -67,18 +77,14 @@
                     </div>
                 </div>
             </form> 
-        </div>
+        </div> -->
 
 
 
 
 
 
-        <div class="row" id="renderInformation" style="display: none;">
-
-        </div>
-
-    </div>
+       
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

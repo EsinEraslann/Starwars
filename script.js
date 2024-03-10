@@ -1,6 +1,5 @@
 
 
-
 const characters = [
   {
     "id": 1,
@@ -113,7 +112,8 @@ const characters = [
   {
     "id": 20,
     "name": "Yoda",
-    "pic": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png"
+    "pic": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png",
+    "homeworld": "other"
   },
   {
     "id": 21,
@@ -125,28 +125,34 @@ const characters = [
 
 
 let row = document.querySelector(".row");
-let isStatus = true;
+let isStatus = false;
 
-for (const character of characters) {
-  row.innerHTML += `
-  <div class="col-lg-3 col-md-4 charactersCard">
-  <img src="${character.pic}" alt="...">
-  <h4>${character.id}</h4>
-  <p>${character.name}</p>
-  <p>Homeworld: ${character.homeworld}</p>
-</div>
-  `;
-}
 
+
+let renderButton = document.getElementById("renderButton");
+renderButton.style.backgroundColor = "yellow"; // butonun başlangıç rengi
 function renderCharacters() {
   const renderInformation = document.getElementById("renderInformation");
-  if (renderInformation.style.display === "none") {
-    renderInformation.style.display = "flex";
-    renderButton.textContent = "Remove Characters";
+  if (!isStatus) {
+    renderInformation.innerHTML = ""; // Önceki karakterleri temizle
+    for (const character of characters) {
+      renderInformation.innerHTML += `
+        <div class="col-lg-3 col-md-4 charactersCard">
+          <img src="${character.pic}" alt="...">
+          <h4>${character.id}</h4>
+          <p>${character.name}</p>
+          <p>Homeworld: ${character.homeworld || 'Unknown'}</p>
+        </div>
+      `;
+    }
+    renderButton.textContent = "Remove Characters"; // change button style
+    renderButton.style.backgroundColor = "green";
+    isStatus = true;
   } else {
-    renderInformation.style.display = "none";
+    renderInformation.innerHTML = ""; // Clear Characters
     renderButton.textContent = "Show Characters";
-    /* renderButton.style.background = "green"; */
+    renderButton.style.backgroundColor = "yellow"; 
+    isStatus = false;
   }
 }
 
@@ -173,11 +179,50 @@ console.log(homeworldsLowercase);
 
 
 homeworlds = homeworldsLowercase;
-console.log(homeworlds);
+//console.log(homeworlds);
 
+const homeworlsdFilterContainer = document.querySelector(".homeworlds-filter-container");
 
+for (let i = 0; i < homeworlds.length; i++) {
+  homeworlsdFilterContainer.innerHTML += `
+  <div class="form-check text-white">
+    <input class="form-check-input" type="radio"  name="homeworld" id="homeworld-${homeworlds[i]}" value="${homeworlds[i]}">
+    <label class="form-check-label" for="homeworld-${homeworlds[i]}">${homeworlds[i]}</label>
+  </div>
+  `;
+}
 
+const filteredHomeworld = document.querySelectorAll(".form-check-input");
 
+for (let i = 0; i < filteredHomeworld.length; i++) {
+  filteredHomeworld[i].addEventListener("click", function () {
+    const selectedHomeworlds = characters.filter(
+      (selectedHomeworld) =>
+        selectedHomeworld.homeworld == filteredHomeworld[i].value
+    );
 
-
+    if (row.innerHTML == "") {
+      for (const selected of selectedHomeworlds) {
+        row.innerHTML += `
+                    <div class="col-lg-3 col-md-4 charactersCard">
+                      <img src="${selected.pic}">
+                      <h4>${selected.id}</h4>
+                      <p>${selected.name}</p>
+                      <p>${selected.homeworld}</p>
+                    </div>`;
+      }
+    } else if (row.innerHTML != "") {
+      row.innerHTML = "";
+      for (const selected of selectedHomeworlds) {
+        row.innerHTML += `
+                    <div class="col-lg-3 col-md-4 charactersCard">
+                      <img src="${selected.pic}">
+                      <h4>${selected.id}</h4>
+                      <p>${selected.name}</p>
+                      <p>${selected.homeworld}</p>
+                    </div>`;
+      }
+    }
+  });
+}
 

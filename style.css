@@ -16,7 +16,7 @@
 }
 
 button{
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .charactersCard {
@@ -30,6 +30,13 @@ button{
     width: 15rem;
     height: 20rem;
     padding-top: 10px;
+}
+
+.homeworlds-filter-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 
